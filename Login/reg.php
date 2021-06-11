@@ -5,8 +5,10 @@ include('conecta.php');
 
 if(isset($_POST['nm'])){
 
+$senhacrip = hash('sha256', $_POST['pw']);
+
 /* $sql Insere dados no banco */
-$sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']."', '".$_POST['pw']."')";
+$sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']."', '".$senhacrip."')";
 
 
  $query = "SELECT * FROM tb_usuario";

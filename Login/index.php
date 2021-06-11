@@ -4,7 +4,9 @@ include('conecta.php');
 
 if(isset($_POST['em'], $_POST['pw'])) {
 
-	$sql = "SELECT * FROM tb_usuario WHERE ds_email = '".$_POST['em']."' AND ds_senha = '".$_POST['pw']."'";
+  $senha = hash('sha256', $_POST['pw']);
+
+	$sql = "SELECT * FROM tb_usuario WHERE ds_email = '".$_POST['em']."' AND ds_senha = '".$senha."'";
 
 	if($query = $mysqli->query($sql)){
 		$obj = $query->fetch_object();
