@@ -47,7 +47,7 @@ if(isset($_POST['em'], $_POST['pw'])) {
         <input type="password" name="pw" id="inputPassword" style="border-radius: 0%; border-color: red; background-color: black;" class="form-control" placeholder="Senha" required="">
         <a href="reg.php" id="r"><p>Registre-se</p></a>
         <input class="btn btn-lg btn-danger btn-block" type="submit" value="login">
-        <p class="mt-5 mb-3 text-muted" style="color: white;">© 2019-2021</p>
+        <p class="mt-5 mb-3 text-muted" style="color: white;">© 2019-2022</p>
       </form>
     
 
