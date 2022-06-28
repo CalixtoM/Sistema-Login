@@ -2,7 +2,7 @@
 
 $servidor = 'localhost';
 $usuario = 'root';
-$senha = 'usbw';
+$senha = '';
 $banco = 'bancolog';
 $mysqli = new mysqli($servidor, $usuario, $senha, $banco);
 
