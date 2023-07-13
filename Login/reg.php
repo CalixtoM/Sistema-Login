@@ -3,28 +3,24 @@
 session_start();
 include('conecta.php');
 
-if(isset($_POST['nm'])){
+if(isset($_POST['nome'])){
+  try{
 
-$senhacrip = hash('sha256', $_POST['pw']);
+    $senhacrip = hash('sha256', $_POST['password']);
 
-/* $sql Insere dados no banco */
-$sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']."', '".$senhacrip."')";
+    /* $sql Insere dados no banco */
+    $stmt = $mysqli->prepare("INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha) VALUES (?, ?, ?)");
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
 
+    $stmt->bind_param("sss", $nome, $email, $senhacrip);
+    $stmt->execute();
 
- $query = "SELECT * FROM tb_usuario";
+  }catch(Exception $e){
+    echo $e->getMessage();
+  }
 
-/*Registra os dados e Redireciona para a pagina de login*/
- if ($query = $mysqli->query($sql)){
- 	echo "funcionou";
- 	header("location: index.php");
- }
-
-/* Caso não funcionar, exibe o erro*/ 						 
- else{
- 	printf("Erro obtido: %s\n", $mysqli->error);
- }
-
- }
+}
 
 ?>
 
@@ -73,18 +69,18 @@ $sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']
           <h1 id="title" class="h3 mb-3 font-weight-normal" >Registro</h1>
         </div>
       </div>
-
+      <form method="post">
       <div class="row" class="line">
         <div class="col-sm-12">
           <label for="inputEmail" class="sr-only">Nome</label>
-          <input type="email" id="inputEmail" name="nome" class="form-control" placeholder="Nome" required="" autofocus="">
+          <input type="text" id="inputEmail" name="nome" class="form-control" placeholder="Nome" required="" autofocus="">
         </div>
       </div>
 
       <div class="row" class="line">
         <div class="col-sm-12">
           <label for="inputEmail" class="sr-only">Email</label>
-          <input type="email" id="inputEmail" name="em" class="form-control" placeholder="E-mail" required="" autofocus="">
+          <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail" required="" autofocus="">
         </div>
       </div>
 
