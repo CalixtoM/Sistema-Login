@@ -95,7 +95,9 @@ if(isset($_POST['em'], $_POST['pw'])) {
 <style type="text/css">
 
   html {
-    height: 100%;
+    position:fixed;
+    width:100%;
+    height:100%;
   }
 
   body{
