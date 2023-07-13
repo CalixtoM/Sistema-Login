@@ -33,64 +33,113 @@ if(isset($_POST['em'], $_POST['pw'])) {
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <title></title>
   </head>
-  <?php 
-  
 
-
-  ?>
-
-<center>
   <body class="text-center">
+    <div id="formulario" class="container text-center">
+      <!--<form class="form-signin" method="post">--> 
+      <div class="row" class="line">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <h1 id="title" class="h3 mb-3 font-weight-normal" >Login</h1>
+        </div>
+      </div>
 
+      <div class="row" class="line">
+        <div class="col-sm-12">
+          <label for="inputEmail" class="sr-only">Email</label>
+          <input type="email" id="inputEmail" name="em" class="form-control" placeholder="E-mail" required="" autofocus="">
+        </div>
+      </div>
 
-    <div class="container">
-      <form class="form-signin" method="post">
-        <h1 class="h3 mb-3 font-weight-normal" style="color: white;">Faça login</h1>
-        <label for="inputEmail" class="sr-only">Endereço de email</label>
-        <input type="email" id="inputEmail" name="em" style="border-radius: 0%; border-color: red; background-color: black;" class="form-control" placeholder="Seu email" required="" autofocus=""><br>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" name="pw" id="inputPassword" style="border-radius: 0%; border-color: red; background-color: black;" class="form-control" placeholder="Senha" required="">
-        <a href="reg.php" id="r"><p>Registre-se</p></a>
-        <input class="btn btn-lg btn-danger btn-block" type="submit" value="login">
-        <?php echo '<p class="mt-5 mb-3 text-muted" style="color: white;">© 2019-'.date('Y').'</p>'  ?>
-        
+      <div class="row" class="line">
+        <div class="col-sm-12">
+          <label for="inputPassword" class="sr-only">Senha</label>
+          <input type="password" name="pw" id="inputPassword"  class="form-control" placeholder="Senha" required="">
+        </div>
+      </div>
+
+      <div class="row" class="line">
+        <div class="col-sm-12">
+          <a href="reg.php" id="r"><p>Registre-se</p></a>
+        </div>
+      </div>
+      
+      <div class="row" class="line">
+        <div class="col-sm-12">
+          <input class="btn btn-lg btn-primary btn-block" id="button" type="submit" value="Login">
+        </div>
+      </div>
+
+      <div class="row" class="line">
+        <div class="col-sm-12">
+          <script type="text/javascript">
+            const date = new Date();
+            console.log(date);
+
+            let year = date.getFullYear();
+            console.log(year);
+          </script>
+
+          <script>
+            document.write("<p class='mt-5 mb-3 text-muted' style='color: white;'>© 2019-"+year+"</p>")
+          </script>
+        </div>
+      </div>
       </form>
-    
-
-  </body>
     </div>
-</center>
+  </body>
 
 </html>
 
 
 <style type="text/css">
 
+  html {
+    height: 100%;
+  }
+
   body{
-    background-color: #f5f5f5;
-
+    background: rgb(2,0,36);
+    background: linear-gradient(141deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    min-height: 100%;
   }
 
-  form{
+
+  #title{
+    color: black;
+    padding-top: 10%;
+  }
+
+  #formulario{
+    margin-top: 10%;
     width: 400px;
-    height: 486px;
+    height: 100%;
+    background-color: #DCDBFC;
+    color: white;
+    box-shadow: 2px 2px 4px #000000;
+    border-radius: 1%;
   }
 
-  
-  body {
-    padding-top: 130px;
-    padding-bottom: 40px;
-    background-color: black;
-}
-
-  
+  #inputEmail, #inputPassword{
+    margin-bottom: 5%;
+  }
 
   h1{
     color: white;
   }
 
-  #r{
-    color: darkred;
+  #button{
+    background-color: #00d4ff;
+    border-color: #00d4ff;
   }
+
+  #button:hover{
+    background-color: #009dbd;
+    border-color: #009dbd;
+  }
+
+  /*#r{
+    color: darkred;
+  }*/
 
 </style>
