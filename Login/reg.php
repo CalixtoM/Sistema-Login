@@ -31,7 +31,9 @@ $sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']
 <!DOCTYPE html>
 <html>
   <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -50,12 +52,12 @@ $sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']
       	var chEspeciais = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
 
       	if($('#inputPassword').val().length<6 || document.getElementById("inputPassword").value == ""){
-      		$('#password-status').html("<span style='color:red'>Fraco, insira no mínimo 6 caracteres</span>");
+      		$('#password-status').html("<span style='color:red'><i class='bi bi-x-circle-fill'> 	Fraca</i></span>");
       	}else {  	
       		if($('#inputPassword').val().match(numeros) && $('#inputPassword').val().match(alfabeto) && $('#inputPassword').val().match(chEspeciais)){            
-      			$('#password-status').html("<span style='color:green'><b>Forte</b></span>");
+      			$('#password-status').html("<span style='color:green'><b><i class='bi bi-check-circle-fill'></i>	 Forte</b></span>");
       		} else {
-      			$('#password-status').html("<span style='color:orange'>Médio, insira um caracter especial</span>");
+      			$('#password-status').html("<span style='color:orange'><i class='bi bi-exclamation-diamond-fill'></i> 	Médio</span>");
       		}
       	}
 
@@ -94,7 +96,8 @@ $sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']
       </div>
 
       <div class="row" class="line">
-        <div class="col-sm-12">
+      	
+        <div class="col-sm-4" style="background-color: #dcdbfc; border-radius: 4%;">
           <span id="password-status"></span>
         </div>
       </div>     
@@ -165,8 +168,12 @@ $sql = "INSERT INTO tb_usuario VALUES (null, '".$_POST['nm']."', '".$_POST['em']
     border-radius: 1%;
   }
 
-  #inputEmail, #inputPassword{
+  #inputEmail{
     margin-bottom: 5%;
+  }
+
+  #inputPassword{
+  	margin-bottom: 2%;
   }
 
   h1{
